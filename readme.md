@@ -22,7 +22,7 @@
 
 ## Duration
 
-- 3 Days (delivered over 4 shorter days)
+- 3 Days
 
 ---
 
