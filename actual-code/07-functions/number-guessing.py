@@ -23,7 +23,7 @@ def get_int_from_user():
 while count <= 4:
     guess = get_int_from_user()
 
-    if guess == -1:
+    if guess == -1:  # magic number
         print(f"Sssh! Don't tell anyone, the answer is {number_to_guess}")
         continue
 
