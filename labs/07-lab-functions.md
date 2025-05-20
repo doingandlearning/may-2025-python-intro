@@ -38,6 +38,7 @@ Don’t follow this like a recipe — use it for **inspiration** if you’re stu
 
 ### Step 2: Pick a Number
 
+* At the top of your program `import random` (we'll look more at this tomorrow)
 * Use `random.randint(1, 10)` inside a function like `generate_number()` to return the mystery number.
 
 ### Step 3: Ask for a Guess
