@@ -1,45 +1,78 @@
-# Lab 10: File Access
+# 🧪 Lab 10: Logging Detector Signal Values
 
-The aim of this lab is to explore creating and accessing the contents of a file.
+## 🎯 Objective
 
----
+Create a Python program that simulates logging signal readings from a detector. The program will:
 
-## Objective
-
-Write a program to:
-
-1. Create a file and write today's date into it. 
-   - The file name can be hard-coded or supplied by the user.
-   - Use `datetime.today()` to get the current date and time.
-   - Use `str()` to convert the datetime object into a string to write it to the file.
-
-2. Example template to get started:
-
-   ```python
-   from datetime import datetime
-
-   print('Creating file')
-
-   with open('date_file.txt', 'w') as file:
-       print('Writing date information to file')
-       # Your code goes here
-
-   print('Done')
-   ```
-
-3. Verify the contents of the newly created file using an editor (e.g., PyCharm) to open the file.
+1. Ask the user to enter signal values.
+2. Add a timestamp to each reading.
+3. Save the results to a file.
+4. (Extension) Read the data back and display the log.
 
 ---
 
-## Extension Point
+## 📍Step 1: Gather Input with Timestamps
 
-As an extension, write a second program to:
+Prompt the user to enter signal strengths (as numbers). Each time they enter a value:
 
-1. Reload the date from the file and convert the string back into a date object.
-2. Use `datetime.strptime()` to convert the string into a datetime object. Documentation on this function can be found [here](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime).
-   - This function requires a date string and a format string that defines the expected format.
-   - Assuming you used the approach in step 1, the following format should work to parse the date string and create a datetime object:
+* Record the **current date and time** alongside it.
+* Continue collecting values until the user types `'done'`.
 
-   ```python
-   datetime_object = datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S.%f')
-   ```
+**Hint:** Use a loop and store the readings in a list. Each item in the list should include both the signal value and the time it was entered.
+
+---
+
+## 📍Step 2: Write to a File
+
+Once all values have been entered:
+
+* Open a file in **write mode**.
+* Write each reading (with its timestamp) to the file.
+* Choose a format that separates the timestamp and the value clearly — e.g. using a pipe (`|`) or a comma.
+
+**Hint:** Use the `with` statement when working with files.
+
+---
+
+## 📍Step 3 (Extension): Read and Display Logged Values
+
+Write a second part to your program (or a separate script) that:
+
+* Opens the file you just created.
+* Reads each line of the file.
+* Splits the line into a timestamp and signal value.
+* Converts the timestamp **back into a `datetime` object**.
+
+**Hint:** Look up `datetime.strptime()` for parsing strings into datetime objects.
+
+---
+
+## 🔍 Example Output
+
+```
+Enter signal values (type 'done' to finish):
+> 3.4
+> 3.5
+> 2.9
+> done
+
+Data saved to signal_log.txt
+```
+
+When reading the file:
+
+```
+At 2025-05-20 14:23:45.123456, signal was 3.4
+At 2025-05-20 14:24:10.456789, signal was 3.5
+At 2025-05-20 14:25:02.789012, signal was 2.9
+```
+
+---
+
+## 💡 Extension Ideas
+
+* Ask the user for the **filename** instead of hardcoding it.
+* Add a unit (e.g. MeV) to each reading.
+* Include **input validation** to ensure signal values are floats.
+* Calculate the **average** signal after reading the file back in.
+
