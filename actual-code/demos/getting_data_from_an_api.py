@@ -20,7 +20,7 @@ weather_data = list(zip(times, temps))
 
 with open("weather.csv", "w") as file:
     writer = csv.writer(file)
-    writer.writerow(["Date/Time", "Temperture(c)"])
+    writer.writerow(["Date/Time", "Temperature(c)"])
     for data in weather_data:
         writer.writerow(data)
 
