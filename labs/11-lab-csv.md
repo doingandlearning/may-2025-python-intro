@@ -1,70 +1,75 @@
-# Lab 11: Working with CSV Files
-
-In this lab, you will create a CSV file based on a set of temperature readings taken from a sensor.
+# 🧪 Lab 11: Working with CSV Files
 
 ---
 
-## Objective
+## 🎯 Objective
 
-1. Use a tuple of tuples to represent a series of temperatures. For example:
-
-   ```python
-   temperatures = (
-       (10.05, '04/05/23', '12:00', 'Celsius'),
-       (11.00, '04/05/23', '13:00', 'Celsius'),
-       (12.34, '04/05/23', '14:00', 'Celsius'),
-       (11.95, '04/05/23', '15:00', 'Celsius'),
-       (9.25, '04/05/23', '16:00', 'Celsius'),
-   )
-   ```
-
-   - Each inner tuple represents a temperature reading with the reading, date, time, and scale.
-
-2. Create a function (e.g., `write_to_csv()`) that takes an iterable (such as a tuple of tuples) and writes the data to a CSV file.
-
-   - Example usage:
-
-     ```python
-     print('Starting')
-     print('Writing Temperature Data')
-     write_to_csv('temperatures.csv', temperatures)
-     print('Done')
-     ```
-
-3. Sample `write_to_csv` function outline:
-
-   ```python
-   import csv
-
-   def write_to_csv(filename, data):
-       print('Starting write of CSV example')
-       with open(filename, 'w', newline='') as csvfile:
-           writer = csv.writer(csvfile)
-           # Write out the data
-           # Your code goes here
-   ```
+You’ll simulate storing a series of temperature readings taken from a sensor into a **CSV file**, then read the data back and display it.
 
 ---
 
-## Extension Point
+## 📍Part 1: Write to a CSV File
 
-1. Write another program to reload the values from the CSV file into a new tuple and print out each tuple.
+### Step 1: Create a Structure for the Readings
 
-2. Use `csv.reader` to read the CSV file, for example:
+Use a **tuple of tuples** to represent temperature data. Each reading should include:
 
-   ```python
-   import csv
+- A **float** temperature
+- A **date string** (e.g., `'04/05/23'`)
+- A **time string** (e.g., `'12:00'`)
+- A **scale** (e.g., `'Celsius'`)
 
-   with open('temperatures.csv') as csvfile:
-       reader = csv.reader(csvfile)
-       for row in reader:
-           # Your code goes here
-   ```
+📝 Prompt:
+Create 5 such readings and store them in a single data structure.
 
-3. Example output:
+---
 
-   ```
-   Loading file temperatures.csv
-   Finished reading file
-   [['10.05', '04/05/23', '12:00', 'Celsius'], ['11.0', '04/05/23', '13:00', 'Celsius'], ['12.34', '04/05/23', '14:00', 'Celsius'], ['11.95', '04/05/23', '15:00', 'Celsius'], ['9.25', '04/05/23', '16:00', 'Celsius']]
-   ```
+### Step 2: Define a Function to Write CSV
+
+Write a function that:
+
+- Accepts a filename and the data structure
+- Writes the data to a CSV file (1 row per reading)
+- Uses `csv.writer`
+
+📝 Prompt:
+What mode do you open the file in?
+How do you separate rows?
+What should each line contain?
+
+---
+
+### Step 3: Run Your Function
+
+- Call your function with the tuple of readings
+- Open the resulting CSV file in PyCharm or a text editor to confirm
+
+---
+
+## 📍Part 2 (Extension): Read Back the File
+
+### Step 1: Use `csv.reader`
+
+Write a second part of the program that:
+
+- Opens the file you just wrote
+- Uses `csv.reader` to load each row
+- Converts the result into a new tuple of tuples (or a list of tuples if you prefer)
+
+### Step 2: Print the Result
+
+- Print each reading on a separate line
+- Try formatting the output so it's easy to read
+
+📝 Prompt:
+Remember: all values read from a CSV are strings.
+What do you need to convert?
+How do you rebuild a tuple from a row?
+
+---
+
+## 🧠 Optional Stretch
+
+- Add a header row (e.g., `['Temperature', 'Date', 'Time', 'Scale']`)
+- Validate that all rows have the correct number of columns before printing
+- Add input() to let the user name the file

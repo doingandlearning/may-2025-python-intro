@@ -1,78 +1,58 @@
-# 🧪 Lab 10: Logging Detector Signal Values
+# 🧪 Lab 10: Writing and Reading a Plain Text Log
 
 ## 🎯 Objective
 
-Create a Python program that simulates logging signal readings from a detector. The program will:
-
-1. Ask the user to enter signal values.
-2. Add a timestamp to each reading.
-3. Save the results to a file.
-4. (Extension) Read the data back and display the log.
+Practise writing structured text to a file using `with open(...)` and reading it back using a loop.
 
 ---
 
-## 📍Step 1: Gather Input with Timestamps
+## 📍Step 1: Write a Structured Log File
 
-Prompt the user to enter signal strengths (as numbers). Each time they enter a value:
+1. Create a list of messages to log (e.g. `"Sensor initialised"`, `"Reading: 3.41"`).
+2. For each message:
 
-* Record the **current date and time** alongside it.
-* Continue collecting values until the user types `'done'`.
+   - Get the current timestamp using `datetime.now()`
+   - Format the line as:
+     `2025-05-21 14:35:01 | Sensor initialised`
 
-**Hint:** Use a loop and store the readings in a list. Each item in the list should include both the signal value and the time it was entered.
+3. Write each line to a file using `with open(..., 'w')`.
 
----
+**Prompts:**
 
-## 📍Step 2: Write to a File
-
-Once all values have been entered:
-
-* Open a file in **write mode**.
-* Write each reading (with its timestamp) to the file.
-* Choose a format that separates the timestamp and the value clearly — e.g. using a pipe (`|`) or a comma.
-
-**Hint:** Use the `with` statement when working with files.
+- Use `datetime.now().strftime(...)` to format the timestamp.
+- Should you add `\n` manually to each line?
+- What filename will you use?
 
 ---
 
-## 📍Step 3 (Extension): Read and Display Logged Values
+## 📍Step 2: View the File
 
-Write a second part to your program (or a separate script) that:
-
-* Opens the file you just created.
-* Reads each line of the file.
-* Splits the line into a timestamp and signal value.
-* Converts the timestamp **back into a `datetime` object**.
-
-**Hint:** Look up `datetime.strptime()` for parsing strings into datetime objects.
+- Open the file in PyCharm or a text editor.
+- Confirm that each line is structured and readable.
 
 ---
 
-## 🔍 Example Output
+## 📍Step 3: Read the Log Back In
 
-```
-Enter signal values (type 'done' to finish):
-> 3.4
-> 3.5
-> 2.9
-> done
+1. Use `with open(..., 'r')` to open the file.
+2. Read it line-by-line using a `for` loop.
+3. Strip the newline character and print each line.
 
-Data saved to signal_log.txt
-```
-
-When reading the file:
-
-```
-At 2025-05-20 14:23:45.123456, signal was 3.4
-At 2025-05-20 14:24:10.456789, signal was 3.5
-At 2025-05-20 14:25:02.789012, signal was 2.9
-```
+**Bonus prompt:**
+Can you split the line back into timestamp and message using `.split(" | ")`?
 
 ---
 
-## 💡 Extension Ideas
+## 🧠 Optional Extension
 
-* Ask the user for the **filename** instead of hardcoding it.
-* Add a unit (e.g. MeV) to each reading.
-* Include **input validation** to ensure signal values are floats.
-* Calculate the **average** signal after reading the file back in.
+- Count how many lines are in the log file.
+- Print only lines where the message includes the word `"Reading"`.
 
+---
+
+## ✅ You’ve Used:
+
+- `with open(..., 'w')` and `'r'`
+- Writing and reading lines
+- String formatting and splitting
+- A structured file format that’s readable but **not yet a CSV**
