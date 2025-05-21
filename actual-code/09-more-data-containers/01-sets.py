@@ -1,3 +1,5 @@
+#! /usr/local/bin/python3
+
 empty_set = set()  # [] -> list(), () -> tuple()
 print(empty_set)
 print(type(empty_set))
