@@ -1,0 +1,19 @@
+Hello
+How are you?
+Fine thanks - coffee time yet?
+Almost!
+Hello
+How are you?
+Fine thanks - coffee time yet?
+Almost!
+Hello
+How are you?
+Fine thanks - coffee time yet?
+Almost!
+Hello
+How are you?
+Fine thanks - coffee time yet?
+Almost!
+I was here.
+I was here.
+[2025-05-21 11:16:04.524038] - Writing to file[2025-05-21 11:17:48.938319] - Writing to file[2025-05-21 11:18:15.039293] - Writing to file[2025-05-21 11:18:22.277897] - Writing to file[2025-05-21 11:20:12.000234] - Writing to file[2025-05-21 11:20:24.788084] - Writing to file[2025-05-21 11:20:32.877608] - Writing to file
